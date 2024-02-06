@@ -6,14 +6,13 @@ const { Title } = Typography;
 import { Link } from 'react-router-dom';
 
 import {Cryptocurrencies,News} from "./index.js"
-
 const Home = () => {
   const { data, isFetching } = useGetCryptosQuery();
 
   console.log(data);
   const gobalStats=data?.data?.stats;
 
-  if(isFetching) return "Fetching...";
+  if(isFetching) return "fetching....";
 
   return (
    <>
@@ -46,17 +45,17 @@ const Home = () => {
       <Title level={3} className="show-more">
         <Link to ="/cryptocurrencies">show more</Link>
       </Title>
-      <Cryptocurrencies/>
     </div>
+    <Cryptocurrencies simplified />
 
     <div className='home-heading-container'>
       <Title level={2} className="home-title">Top 10 cryptos news</Title>
       <Title level={3} className="show-more">
-        <Link to ="/news">show more</Link>
+        <Link to ="/news simplified">show more</Link>
       </Title>
-      <News/>
     </div>
-
+    <News simplified/>  
+    {/* simplified here is a prop with which we will show only 10 items */}
    </>
   )
 }
