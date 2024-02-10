@@ -6,8 +6,9 @@ const { Title } = Typography;
 import { Link } from 'react-router-dom';
 
 import {Cryptocurrencies,News} from "./index.js"
+
 const Home = () => {
-  const { data, isFetching } = useGetCryptosQuery();
+  const { data, isFetching } = useGetCryptosQuery(10);
 
   console.log(data);
   const gobalStats=data?.data?.stats;
@@ -46,7 +47,7 @@ const Home = () => {
         <Link to ="/cryptocurrencies">show more</Link>
       </Title>
     </div>
-    <Cryptocurrencies simplified />
+    <Cryptocurrencies simplified={true} />
 
     <div className='home-heading-container'>
       <Title level={2} className="home-title">Top 10 cryptos news</Title>
